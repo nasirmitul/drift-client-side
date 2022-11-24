@@ -1,0 +1,510 @@
+/* =========================== Basic Setup =========================== */
+:root {
+    --primary-50: rgba(66, 166, 253, 0.2);
+    --primary: #42A5FD;
+    --secondary: #836AFF;
+    --third: #F7DC6F;
+    --background-200: #FDFCFD;
+    --background-500: #F8F8F8;
+    --text-light: #FDFEFE;
+    --text-dark: #535353;
+    --gray: #b9b9b9;
+    --shadow: 4px 0px 8px 2px rgba(66, 166, 253, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: min(1320px, 90%);
+    margin: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background-500);
+}
+
+a {
+    text-decoration: none;
+}
+
+.custom-button {
+    padding: 8px 20px;
+    background: var(--primary);
+    outline: none;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid var(--primary);
+    transition: .5s;
+}
+
+.custom-button:hover {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.custom-button-gr {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    outline: none;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s;
+    border: none;
+    transition: .5s !important;
+}
+
+.custom-button-gr:hover {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.custom-button-outline {
+    padding: 8px 20px;
+    background: transparent;
+    outline: none;
+    border-radius: 5px;
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid var(--primary);
+    transition: .5s;
+}
+
+.custom-button-outline:hover {
+    background: var(--primary);
+    color: var(--text-light);
+    border: 2px solid var(--background-500);
+}
+
+/* =========================== Navigation =========================== */
+.navbar {
+    background: var(--background-200);
+    padding: 15px 0;
+}
+
+.navbar .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo a {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.nav .logo a img {
+    width: 30px;
+}
+
+.nav .logo a p {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.nav .nav-links a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.nav .nav-links a.active {
+    color: var(--primary);
+    position: relative;
+}
+
+.nav .nav-links a.active::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: var(--primary);
+    left: 0;
+    bottom: -25px;
+}
+
+.nav .userImg {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* =========================== Register, Login, ForgetPass =========================== */
+.sign-account {
+    margin-top: 50px;
+    width: min(400px, 90%);
+    min-height: calc(100vh - 125px);
+}
+
+.sign-account .heading {
+    color: var(--primary);
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.sign-account .heading span {
+    color: var(--third);
+    font-size: 3rem;
+}
+
+.sign-account .change-to {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-dark);
+}
+
+.sign-account .change-to a {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.sign-account .inputs {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sign-account .inputs input {
+    padding: 15px;
+    background: transparent;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    outline: none;
+    font-size: .9rem;
+    transition: .4s;
+    color: var(--primary);
+}
+
+.check-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check-user .normal-user,
+.check-user .seller-user {
+    width: 48%;
+}
+
+.check-user .normal-user input,
+.check-user .seller-user input {
+    display: none;
+    gap: 30px;
+}
+
+.check-user .normal-user label,
+.check-user .seller-user label {
+    width: 100%;
+    color: white;
+    padding: 12px;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.check-user .normal-user input:checked+label,
+.check-user .seller-user input:checked+label {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+
+.sign-account .inputs input:focus {
+    border: 1px solid var(--primary);
+}
+
+.sign-account .action-button .sign-to-account {
+    margin-top: 30px;
+    padding: 12px;
+    background: var(--primary);
+    width: 100%;
+    color: var(--text-light);
+    transition: .5s;
+    border: 2px solid var(--primary);
+}
+
+.sign-account .action-button .sign-to-account:hover {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.sign-account .other-options .or-title {
+    position: relative;
+    text-align: left;
+    margin: 20px 0;
+    color: var(--gray);
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.sign-account .other-options .or-title::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 70%;
+    background: var(--gray);
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.sign-account .other-options .google .google-sign {
+    padding: 12px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid var(--primary);
+    transition: .5s;
+}
+
+.sign-account .other-options .google .google-sign:hover {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+.remember-forget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.remember-forget .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.remember-forget .remember-me input {
+    accent-color: var(--primary);
+}
+
+.remember-forget .forget-password {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* =========================== Home =========================== */
+/* -------------- banner -------------- */
+.banner {
+    height: calc(100vh - 90px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.banner .banner-left{
+    width: 40%;
+}
+.banner .banner-right {
+    width: 60%;
+}
+
+.banner .banner-right img {
+    width: 100%;
+}
+
+.banner .banner-left .title {
+    font-size: 4rem;
+    line-height: 70px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+.banner .banner-left .description {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+
+
+
+/* =========================== Footer =========================== */
+.footer {
+    background: var(--primary);
+    padding: 80px 0 40px 0;
+    margin-top: 50px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+@media only screen and (max-width:768px) {
+    .single_footer {
+        margin-bottom: 30px;
+    }
+}
+
+.single_footer h4 {
+    color: var(--background-200);
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.single_footer h4::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 40px;
+    background: var(--background-200);
+    margin-top: 20px;
+}
+
+.single_footer p {
+    color: var(--background-200);
+}
+
+.single_footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+.single_footer ul li a {
+    color: var(--background-200);
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    line-height: 36px;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.single_footer ul li a:hover {
+    color: var(--text-dark);
+}
+
+.single_footer_address ul li {
+    color: var(--background-200);
+}
+
+.single_footer_address ul li span {
+    font-weight: 400;
+    color: var(--background-200);
+    line-height: 28px;
+}
+
+.contact_social ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+.social_profile {
+    margin-top: 40px;
+}
+
+.social_profile ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+.social_profile ul li {
+    float: left;
+}
+
+.social_profile ul li a {
+    text-align: center;
+    border: 0px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    margin: 0px 5px;
+    font-size: 18px;
+    color: var(--background-200);
+    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media only screen and (max-width:768px) {
+    .social_profile ul li a {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .social_profile ul li a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
+.social_profile ul li a:hover {
+    background: transparent;
+    border: none;
+    color: var(--background-200);
+    border: 0px;
+}
+
+/*END SOCIAL PROFILE CSS*/
+.copyright {
+    margin-top: 70px;
+    padding-top: 40px;
+    color: var(--background-200);
+    font-size: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.copyright a {
+    color: #fff;
+    transition: all 0.2s ease 0s;
+}
