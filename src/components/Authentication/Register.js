@@ -39,32 +39,15 @@ const Register = () => {
                     displayName: name, photoURL: "https://i.ibb.co/P1ZYLSv/male-avatar.png"
                 }).then(() => {
                     console.log('profile updated');
+                    saveUser(name, email, user_type);
+                    form.reset();
                 }).catch((error) => {
                     console.log(error);
                 });
 
-                //get jwt token
-                const currentUser = {
-                    email: user?.email
-                }
-                fetch('https://croft-server.vercel.app/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        localStorage.setItem('secret-token', data.token)
-                        saveUser(name,email,user_type)
-                        navigate(from, { replace: true });
-                    })
 
-                form.reset();
-                // navigate(from, { replace: true });
             })
+
             .catch((error) => {
                 console.log(error);
                 if (error.message === "Firebase: Password should be at least 6 characters (auth/weak-password).") {
@@ -75,41 +58,24 @@ const Register = () => {
                     setShowError('This Email Already in use. Please use another one');
                 }
             })
-    } 
+    }
 
     const signWithGoogle = () => {
         googleSign()
             .then((result) => {
                 const user = result.user;
                 console.log(user);
-                //get jwt token
-                const currentUser = {
-                    email: user?.email
-                }
-                fetch('https://croft-server.vercel.app/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        localStorage.setItem('secret-token', data.token)
-                        navigate(from, { replace: true });
-                    })
-                // navigate(from, { replace: true });
+                navigate(from, { replace: true });
             }).catch((error) => {
                 console.log(error);
             });
     }
 
 
-    const saveUser = (name, email, role) =>{
+    const saveUser = (name, email, role) => {
         const userData = {
             name,
-            email, 
+            email,
             user_role: role
         }
 
@@ -120,8 +86,24 @@ const Register = () => {
             },
             body: JSON.stringify(userData)
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => {
+                getUserToken(email)
+                console.log(data);
+            })
+    }
+
+
+    const getUserToken = email => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.accessToken) {
+                    localStorage.setItem('secret-token', data.accessToken)
+                    navigate(from, { replace: true });
+                }
+                console.log(data);
+            })
     }
 
     return (
@@ -139,11 +121,11 @@ const Register = () => {
 
                         <div className="check-user">
                             <div className="normal-user">
-                                <input type="radio" name="user_type" value="user" id='user' required/> 
+                                <input type="radio" name="user_type" value="user" id='user' required />
                                 <label htmlFor="user">User</label>
                             </div>
                             <div className="seller-user">
-                                <input type="radio" name="user_type" value="seller" id='seller' required/>
+                                <input type="radio" name="user_type" value="seller" id='seller' required />
                                 <label htmlFor="seller">Seller</label>
                             </div>
                         </div>

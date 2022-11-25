@@ -477,6 +477,7 @@ a {
     border: 2px solid var(--primary);
     border-radius: 5px;
     text-align: center;
+    color: var(--text-dark);
 }
 
 .user-lists {

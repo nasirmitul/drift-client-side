@@ -5,6 +5,7 @@ import ForgetPass from "../components/Authentication/ForgetPass";
 import Login from "../components/Authentication/Login";
 import Register from "../components/Authentication/Register";
 import Blog from "../components/Blog/Blog";
+import MyOrders from "../components/Buyers/MyOrders";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home";
 import Products from "../components/Products/Products";
@@ -60,7 +61,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/allBuyers',
                 element: <AllBuyers></AllBuyers>
-            }
+            },
+            {
+                path: '/dashboard/myOrders',
+                element: <MyOrders></MyOrders>
+            },
         ]
     },
     {

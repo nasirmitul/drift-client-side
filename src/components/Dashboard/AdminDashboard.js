@@ -7,6 +7,7 @@ const AdminDashboard = () => {
             <div className="admin-side-navigation">
                 <NavLink to='/dashboard'>All Sellers</NavLink>
                 <NavLink to='/dashboard/allBuyers'>All Buyers</NavLink>
+                <NavLink to='/dashboard/myOrders'>My Orders</NavLink>
             </div>
         </div>
     );
