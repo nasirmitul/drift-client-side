@@ -14,4 +14,4 @@
 * 
 
 #### Technologies Used
-`react js` `node js` `express js` `Firebase` `Vercel` `Vs Code`, `mongodb`, `react router dom`
+`react js` `node js` `express js` `Firebase` `Vercel` `Vs Code`, `mongodb`, `react router dom`, `react icons`
