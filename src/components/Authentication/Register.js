@@ -30,14 +30,6 @@ const Register = () => {
         const user_type = form.user_type.value;
         console.log(name, email, password);
 
-        const userData = {
-            name,
-            email, 
-            password,
-            user_type
-        }
-
-        console.log(userData);
 
         createUser(email, password)
             .then(result => {
@@ -66,6 +58,7 @@ const Register = () => {
                     .then(data => {
                         console.log(data);
                         localStorage.setItem('secret-token', data.token)
+                        saveUser(name,email,user_type)
                         navigate(from, { replace: true });
                     })
 
@@ -82,7 +75,7 @@ const Register = () => {
                     setShowError('This Email Already in use. Please use another one');
                 }
             })
-    }
+    } 
 
     const signWithGoogle = () => {
         googleSign()
@@ -110,6 +103,25 @@ const Register = () => {
             }).catch((error) => {
                 console.log(error);
             });
+    }
+
+
+    const saveUser = (name, email, role) =>{
+        const userData = {
+            name,
+            email, 
+            user_role: role
+        }
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
 
     return (
