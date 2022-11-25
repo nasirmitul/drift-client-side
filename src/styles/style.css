@@ -134,7 +134,6 @@ a {
 .nav .nav-links {
     display: flex;
     align-items: center;
-    /* gap: 30px; */
 }
 
 .nav .nav-links a {
@@ -425,6 +424,40 @@ a {
 
 /* =========================== Products =========================== */
 
+/* -------------- Product -------------- */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+}
+
+.products-container .single-product {
+    background: var(--background-200);
+    padding: 20px;
+    border-radius: 6px;
+    transition: .5s;
+
+}
+
+.products-container .single-product:hover {
+    box-shadow: var(--shadow-dark);
+    /* border: 1px solid var(--primary-50); */
+}
+
+.products-container .single-product .picture img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.products-container .single-product .product-name {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+
+
 /* -------------- Modal -------------- */
 .main-modal {
     position: absolute;
@@ -492,6 +525,85 @@ a {
     margin-top: 10px;
 }
 
+/* =========================== My Orders =========================== */
+.my-orders {
+    min-height: calc(100vh - 155px);
+    width: 100%;
+}
+
+.my-orders .order-heading,
+.my-orders .order-body {
+    display: flex;
+    align-items: center;
+}
+
+.my-orders .order-heading .image-name,
+.my-orders .order-body .image-name {
+    width: 65%;
+    display: flex;
+    /* gap: 60px; */
+    align-items: center;
+}
+
+.my-orders .order-heading .price-pay,
+.my-orders .order-body .price-pay {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my-orders .order-heading{
+    background: var(--primary-50);
+    padding: 15px 10px;
+    margin-bottom: 10px;
+}
+
+.my-orders .order-heading strong{
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.my-orders .order-body{
+    border: 1px solid var(--primary-50);
+    padding: 10px;
+    margin-top: -1px;
+}
+
+.my-orders .order-heading .image,
+.my-orders .order-body .image{
+    width: 100px;
+}
+
+.my-orders .order-body .image{
+    height: 60px;
+}
+
+.my-orders .order-body .image-name .product-image{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.my-orders .order-body .image-name .product-name{
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.my-orders .order-body .price-pay .price{
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.my-orders .order-body .price-pay .pay{
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* =========================== Dashboard =========================== */
 
 /* -------------- Admin -------------- */
@@ -507,6 +619,7 @@ a {
     padding: 20px;
     gap: 20px;
     min-width: 200px;
+    padding-top: 0;
 }
 
 .admin-side-navigation a {
@@ -518,7 +631,6 @@ a {
 }
 
 .user-lists {
-    margin-top: 20px;
     width: 100%;
     min-height: calc(100vh - 155px);
 }
