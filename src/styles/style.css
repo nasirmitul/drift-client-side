@@ -106,6 +106,7 @@ a {
 .navbar {
     background: var(--background-200);
     padding: 15px 0;
+    margin-bottom: 30px;
 }
 
 .navbar .nav {
@@ -423,24 +424,52 @@ a {
 }
 
 /* =========================== Products =========================== */
+
+/* -------------- Modal -------------- */
 .main-modal {
     position: absolute;
     left: 0;
     top: 0;
     height: 100vh;
     width: 100%;
-    /* background: rgba(255, 255, 255, 0.4); */
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
+}
+
+.main-modal .modal-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.main-modal .modal-title p {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.main-modal .modal-title p span {
+    color: var(--primary);
+}
+
+.main-modal .modal-title .cross-icon {
+    font-size: 1.8rem;
+    color: var(--primary);
+    cursor: pointer;
 }
 
 .product-modal {
     position: absolute;
     background: var(--background-200);
-    padding: 15px;
+    padding: 30px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    width: min(500px, 90%);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
 }
 
 .product-modal form {
@@ -450,10 +479,18 @@ a {
 }
 
 .product-modal form input {
-    padding: 8px 20px;
+    padding: 13px 20px;
     border-radius: 5px;
+    border: 2px solid var(--primary);
 }
 
+.product-modal form input:focus {
+    border: 2px solid var(--secondary);
+}
+
+.product-modal form .custom-button {
+    margin-top: 10px;
+}
 
 /* =========================== Dashboard =========================== */
 
@@ -483,16 +520,18 @@ a {
 .user-lists {
     margin-top: 20px;
     width: 100%;
-    min-height: calc(100vh - 155px) ;
+    min-height: calc(100vh - 155px);
 }
 
-.table-data{
+.table-data {
     border: 1px solid var(--primary-light);
     margin-top: -1px;
 }
-.table-heading{
+
+.table-heading {
     margin-bottom: 10px;
 }
+
 .table-data,
 .table-heading {
     display: flex;
@@ -517,35 +556,35 @@ a {
     color: var(--primary);
 }
 
-.table-data .delete{
+.table-data .delete {
     position: relative;
     right: 10px;
     font-size: 1.4rem;
 }
 
-.table-data .delete .icon{
+.table-data .delete .icon {
     cursor: pointer;
 }
 
-.table-data .seller-name{
+.table-data .seller-name {
     display: flex;
     align-items: center;
 }
 
-.table-data .verified{
+.table-data .verified {
     color: var(--primary);
     margin-left: -10px;
 }
 
-.table-heading strong{
+.table-heading strong {
     background: var(--primary-light);
     padding: 15px;
     /* margin-bottom: 30px; */
     color: var(--primary);
 }
 
-.table-data p{
-    padding:  15px;
+.table-data p {
+    padding: 15px;
 }
 
 /* =========================== Footer =========================== */
