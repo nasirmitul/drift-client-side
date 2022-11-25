@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
     return (
-        <div className='container'>
-            <div className="side-navigation">
+        <div className=''>
+            <div className="admin-side-navigation">
                 <NavLink to='/dashboard'>All Sellers</NavLink>
                 <NavLink to='/dashboard/allBuyers'>All Buyers</NavLink>
             </div>
@@ -12,4 +12,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default AdminDashboard;

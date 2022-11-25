@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/UserContext';
 import { TiDelete } from 'react-icons/ti';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const Modal = ({ product, closeModal }) => {
     const notify = () => toast.success("You have successfully booked this item");
@@ -21,18 +20,6 @@ const Modal = ({ product, closeModal }) => {
                     <button onClick={notify} className='custom-button'>Submit</button>
                 </form>
             </div>
-            <ToastContainer
-                position="top-center"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable={false}
-                pauseOnHover={false}
-                theme="light"
-            />
         </div>
     );
 };

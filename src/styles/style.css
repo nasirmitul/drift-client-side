@@ -2,6 +2,7 @@
 :root {
     --primary-50: rgba(66, 166, 253, 0.2);
     --primary: #42A5FD;
+    --primary-light: rgba(68, 167, 253, 0.2);
     --secondary: #836AFF;
     --third: #F7DC6F;
     --background-200: #FDFCFD;
@@ -451,6 +452,99 @@ a {
 .product-modal form input {
     padding: 8px 20px;
     border-radius: 5px;
+}
+
+
+/* =========================== Dashboard =========================== */
+
+/* -------------- Admin -------------- */
+.admin-dashboard-layout {
+    display: flex;
+    gap: 30px;
+}
+
+.admin-side-navigation {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 20px;
+    gap: 20px;
+    min-width: 200px;
+}
+
+.admin-side-navigation a {
+    padding: 8px 20px;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.user-lists {
+    margin-top: 20px;
+    width: 100%;
+    min-height: calc(100vh - 155px) ;
+}
+
+.table-data{
+    border: 1px solid var(--primary-light);
+    margin-top: -1px;
+}
+.table-heading{
+    margin-bottom: 10px;
+}
+.table-data,
+.table-heading {
+    display: flex;
+    text-align: left;
+    align-items: center;
+}
+
+.table-data .name,
+.table-heading .name {
+    width: 40%;
+}
+
+.table-data .email,
+.table-heading .email {
+    width: 40%;
+}
+
+.table-data .delete,
+.table-heading .delete {
+    width: 20%;
+    text-align: end;
+    color: var(--primary);
+}
+
+.table-data .delete{
+    position: relative;
+    right: 10px;
+    font-size: 1.4rem;
+}
+
+.table-data .delete .icon{
+    cursor: pointer;
+}
+
+.table-data .seller-name{
+    display: flex;
+    align-items: center;
+}
+
+.table-data .verified{
+    color: var(--primary);
+    margin-left: -10px;
+}
+
+.table-heading strong{
+    background: var(--primary-light);
+    padding: 15px;
+    /* margin-bottom: 30px; */
+    color: var(--primary);
+}
+
+.table-data p{
+    padding:  15px;
 }
 
 /* =========================== Footer =========================== */

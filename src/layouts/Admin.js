@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import Dashboard from '../components/Dashboard/Dashboard';
+import AdminDashboard from '../components/Dashboard/AdminDashboard';
 import Footer from '../components/Footer/Footer';
 import Navigation from '../components/Navigation/Navigation';
 
@@ -8,8 +8,8 @@ const Admin = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <div>
-                <Dashboard></Dashboard>
+            <div className='admin-dashboard-layout container'>
+                <AdminDashboard></AdminDashboard>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

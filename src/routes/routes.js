@@ -5,7 +5,6 @@ import ForgetPass from "../components/Authentication/ForgetPass";
 import Login from "../components/Authentication/Login";
 import Register from "../components/Authentication/Register";
 import Blog from "../components/Blog/Blog";
-import Dashboard from "../components/Dashboard/Dashboard";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home";
 import Products from "../components/Products/Products";
