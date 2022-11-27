@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/UserContext';
 import Spinner from '../Spinner/Spinner';
+import { MdDelete } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 const MyProduct = () => {
     const { user, loading } = useContext(AuthContext);
@@ -10,6 +12,25 @@ const MyProduct = () => {
             .then(res => res.json())
             .then(data => setMyProducts(data))
     }, [])
+
+
+    const handelProductDelete = (id) => {
+        const proceed = window.confirm("Are you sure you want to this Product?")
+        if (proceed) {
+            fetch(`http://localhost:5000/myProducts/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.acknowledged) {
+                        toast.success("Product Deleted successfully");
+                    }
+                })
+        }
+    }
+
+
     return (
         <div className='my-orders'>
             <div className="orders">
@@ -21,13 +42,14 @@ const MyProduct = () => {
                     <div className="price-pay">
                         <strong className='price'>Price</strong>
                         <strong className='price'>Status</strong>
-                        <strong className='pay'>Action</strong>
+                        <strong className='pay'>Advertise</strong>
+                        <strong className='pay'>Delete</strong>
                     </div>
                 </div>
 
                 {
                     loading ? <Spinner></Spinner> :
-                    myProducts.map(product =>
+                        myProducts.map(product =>
                             <div className="order-body" key={product._id}>
                                 <div className="image-name">
                                     <div className="image">
@@ -37,8 +59,9 @@ const MyProduct = () => {
                                 </div>
                                 <div className="price-pay">
                                     <p className='price'>{product.resale_price}</p>
-                                    <p className='price'>{product.status? product.status : "unsold"}</p>
+                                    <p className='price'>{product.status ? product.status : "unsold"}</p>
                                     <p className='pay'>Advertise</p>
+                                    <p className='delete' onClick={() => handelProductDelete(product._id)}><MdDelete className='icon'></MdDelete></p>
                                 </div>
                             </div>
                         )

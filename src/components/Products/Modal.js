@@ -24,7 +24,8 @@ const Modal = ({ product, closeModal }) => {
             product_price,
             phone_number,
             location,
-            product_image: product.product_image
+            product_image: product.product_image,
+            product_id: product._id
         }
 
 
@@ -43,10 +44,6 @@ const Modal = ({ product, closeModal }) => {
                 }
                 console.log(data);
             })
-
-        // console.log(myOrder);
-
-
 
 
     }
