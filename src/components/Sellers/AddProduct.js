@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/UserContext';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
-
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [categories, setCategories] = useState([]);
     const [categoryId, setCategoryId] = useState("");
-
     const [categoryData, setCategoryData] = useState([])
+
 
 
     useEffect(() => {
@@ -54,6 +56,7 @@ const AddProduct = () => {
             original_price,
             years_used,
             seller_name: user?.displayName,
+            seller_email: user?.email,
             phone,
             description,
             condition,
@@ -75,6 +78,8 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+                    toast.success("Product added successfully");
+                    navigate('/dashboard/myProduct');
                 }
                 console.log(data);
             })
