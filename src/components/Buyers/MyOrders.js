@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query'
 import { AuthContext } from '../../contexts/UserContext';
 import Spinner from '../Spinner/Spinner';
+import { Link } from 'react-router-dom';
 
 const MyOrders = () => {
     const { user, loading } = useContext(AuthContext);
@@ -35,21 +36,22 @@ const MyOrders = () => {
 
                 {
                     loading ? <Spinner></Spinner> :
-                            myOrders.map(order =>
-                                <div className="order-body" key={order._id}>
-                                    <div className="image-name">
-                                        <div className="image">
-                                            <img className='product-image' src={order.product_image} alt="" />
-                                        </div>
+                        myOrders.map(order =>
+                            <div className="order-body" key={order._id}>
+                                <div className="image-name">
+                                    <div className="image">
+                                        <img className='product-image' src={order.product_image} alt="" />
+                                    </div>
 
-                                        <p className='product-name'>{order.product_name}</p>
-                                    </div>
-                                    <div className="price-pay">
-                                        <p className='price'>{order.product_price}</p>
-                                        <p className='pay'>Pay</p>
-                                    </div>
+                                    <p className='product-name'>{order.product_name}</p>
                                 </div>
-                            )
+                                <div className="price-pay">
+                                    <p className='price'>{order.product_price}</p>
+
+                                    <Link to={`/dashboard/myOrders/payment/${order._id}`}><p className='pay'>Pay</p></Link>
+                                </div>
+                            </div>
+                        )
                 }
             </div>
         </div>

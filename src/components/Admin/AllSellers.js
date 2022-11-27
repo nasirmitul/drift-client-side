@@ -30,6 +30,26 @@ const AllSellers = () => {
                 }
             })
     }
+
+
+    const handelSellerDelete = (email) => {
+        const proceed = window.confirm("Are you sure you want to this seller?")
+        if (proceed) {
+            fetch(`http://localhost:5000/users/${email}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.acknowledged) {
+                        refetch();                        
+                        toast.success("Seller Deleted successfully");
+                    }
+                })
+        }
+    }
+
+
     return (
         <div className='user-lists'>
             <div>
@@ -48,7 +68,7 @@ const AllSellers = () => {
                             </div>
                             <p className='email'>{seller.email}</p>
                             <p className='delete' onClick={() => handleVerify(seller._id, seller.name)}><MdVerified className='icon'></MdVerified></p>
-                            <p className='delete'><MdDelete className='icon'></MdDelete></p>
+                            <p className='delete' onClick={() => handelSellerDelete(seller.email)}><MdDelete className='icon'></MdDelete></p>
                         </div>
                     )
                 }
