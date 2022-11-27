@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/UserContext';
 
 const Profile = () => {
     const navigate = useNavigate();
-    const {logoutUser} = useContext(AuthContext)
+    const {user, logoutUser} = useContext(AuthContext)
     const handleLogOut = () => {
         logoutUser()
             .then(() => {
@@ -14,7 +14,8 @@ const Profile = () => {
     }
     return (
         <div className='container'>
-            <h1>Profile</h1>
+            <h1>Name: {user?.displayName}</h1>
+            <strong>Email: {user?.email}</strong> <br /> <br /> <br />
             <button onClick={handleLogOut} className="custom-button-outline">Logout</button>
         </div>
     );

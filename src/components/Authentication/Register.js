@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import app from '../../firebase/firebase.init';
+import useToken from '../../hooks/useToken';
 import Spinner from '../Spinner/Spinner';
 
 
@@ -12,10 +13,18 @@ const Register = () => {
     const [showError, setShowError] = useState("");
     const { createUser, googleSign, loading } = useContext(AuthContext)
 
+    const [usersEmail, setUserEmail] = useState('');
+    console.log("usersEmail", usersEmail);
+    const [token] = useToken(usersEmail);
+
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
 
     if (loading) {
         return <Spinner></Spinner>
@@ -44,8 +53,6 @@ const Register = () => {
                 }).catch((error) => {
                     console.log(error);
                 });
-
-
             })
 
             .catch((error) => {
@@ -65,7 +72,7 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true });
+                setUserEmail(user.email);
             }).catch((error) => {
                 console.log(error);
             });
@@ -88,23 +95,11 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(data => {
-                getUserToken(email)
+                setUserEmail(email);
                 console.log(data);
             })
     }
 
-
-    const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.accessToken) {
-                    localStorage.setItem('secret-token', data.accessToken)
-                    navigate(from, { replace: true });
-                }
-                console.log(data);
-            })
-    }
 
     return (
         <div className='container sign-account'>

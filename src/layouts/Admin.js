@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import AdminDashboard from '../components/Dashboard/AdminDashboard';
+import Dashboard from '../components/Dashboard/Dashboard';
 import Footer from '../components/Footer/Footer';
 import Navigation from '../components/Navigation/Navigation';
 
@@ -9,7 +9,7 @@ const Admin = () => {
         <div>
             <Navigation></Navigation>
             <div className='admin-dashboard-layout container'>
-                <AdminDashboard></AdminDashboard>
+                <Dashboard></Dashboard>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

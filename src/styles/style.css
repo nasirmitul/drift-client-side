@@ -2,7 +2,7 @@
 :root {
     --primary-50: rgba(66, 166, 253, 0.2);
     --primary: #42A5FD;
-    --primary-light: rgba(68, 167, 253, 0.2);
+    --primary-light: #44a7fd33;
     --secondary: #836AFF;
     --third: #F7DC6F;
     --background-200: #FDFCFD;
@@ -842,4 +842,13 @@ a {
 .copyright a {
     color: #fff;
     transition: all 0.2s ease 0s;
+}
+
+
+/* Loader */
+.loader{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 100px;
 }

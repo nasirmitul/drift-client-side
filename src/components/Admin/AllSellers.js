@@ -5,6 +5,7 @@ import { MdVerified } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 const AllSellers = () => {
+    
     const { data: allSellers = [], refetch } = useQuery({
         queryKey: ['seller'],
         queryFn: async () => {
@@ -16,7 +17,10 @@ const AllSellers = () => {
 
     const handleVerify = (id, name) => {
         fetch(`http://localhost:5000/allUser/seller/${id}`, {
-            method: 'PUT'
+            method: 'PUT',
+            headers: {
+                authorization: localStorage.getItem('secret-token')
+            }
         })
             .then(res => res.json())
             .then(data => {

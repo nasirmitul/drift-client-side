@@ -10,8 +10,13 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home";
 import Products from "../components/Products/Products";
 import Profile from "../components/Profile/Profile";
+import AddProduct from "../components/Sellers/AddProduct";
+import MyProduct from "../components/Sellers/MyProduct";
 import Admin from "../layouts/Admin";
 import Main from "../layouts/Main";
+import AdminRoute from "./AdminRoute";
+import BuyerRoute from "./BuyerRoute";
+import SellerRoute from "./SellerRoute";
 
 
 export const routes = createBrowserRouter([
@@ -56,15 +61,23 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <AllSellers></AllSellers>
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             },
             {
                 path: '/dashboard/allBuyers',
-                element: <AllBuyers></AllBuyers>
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             },
             {
                 path: '/dashboard/myOrders',
-                element: <MyOrders></MyOrders>
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+            },
+            {
+                path: '/dashboard/addProduct',
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
+            },
+            {
+                path: '/dashboard/myProduct',
+                element: <SellerRoute><MyProduct></MyProduct></SellerRoute>
             },
         ]
     },
