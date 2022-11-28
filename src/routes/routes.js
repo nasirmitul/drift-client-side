@@ -6,6 +6,7 @@ import Login from "../components/Authentication/Login";
 import Register from "../components/Authentication/Register";
 import Blog from "../components/Blog/Blog";
 import MyOrders from "../components/Buyers/MyOrders";
+import MyWishList from "../components/Buyers/MyWishList";
 import Payment from "../components/Buyers/Payment";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home";
@@ -71,6 +72,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myOrders',
                 element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+            },
+            {
+                path: '/dashboard/myWishlist',
+                element: <BuyerRoute><MyWishList></MyWishList></BuyerRoute>
             },
             {
                 path: '/dashboard/myOrders/payment/:id',

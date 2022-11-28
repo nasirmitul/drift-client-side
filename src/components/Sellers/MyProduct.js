@@ -7,11 +7,12 @@ import { toast } from 'react-toastify';
 const MyProduct = () => {
     const { user, loading } = useContext(AuthContext);
     const [myProducts, setMyProducts] = useState([]);
+    const [refetch, setRefetch] = useState(0)
     useEffect(() => {
         fetch(`http://localhost:5000/myProduct/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyProducts(data))
-    }, [])
+    }, [refetch])
 
 
     const handelProductDelete = (id) => {
@@ -25,9 +26,25 @@ const MyProduct = () => {
                     console.log(data);
                     if (data.acknowledged) {
                         toast.success("Product Deleted successfully");
+                        setRefetch(refetch + 1)
                     }
                 })
         }
+    }
+
+
+    const handleAdvertise = id => {
+        fetch(`http://localhost:5000/advertise/${id}`, {
+            method: 'PUT',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    console.log(data);
+                    toast.success("Product Advertised");
+                    setRefetch(refetch + 1)
+                }
+            })
     }
 
 
@@ -60,7 +77,7 @@ const MyProduct = () => {
                                 <div className="price-pay">
                                     <p className='price'>{product.resale_price}</p>
                                     <p className='price'>{product.status ? product.status : "unsold"}</p>
-                                    <p className='pay'>Advertise</p>
+                                    <p className='pay' onClick={() => handleAdvertise(product._id)}>Advertise</p>
                                     <p className='delete' onClick={() => handelProductDelete(product._id)}><MdDelete className='icon'></MdDelete></p>
                                 </div>
                             </div>

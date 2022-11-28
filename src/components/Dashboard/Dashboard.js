@@ -27,6 +27,7 @@ const Dashboard = () => {
                     isBuyer &&
                     <>
                         <NavLink to='/dashboard/myOrders'>My Orders</NavLink>
+                        <NavLink to='/dashboard/myWishlist'>My Wishlist</NavLink>
                     </>
                 }
                 {
