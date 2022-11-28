@@ -11,6 +11,7 @@
     --text-dark: #535353;
     --text-dark-50: #5a5a5a;
     --gray: #b9b9b9;
+    --white: #ffffff;
     --gray-50: #eeeeee;
     --shadow: 4px 0px 8px 2px rgba(66, 166, 253, 0.3);
     --shadow-dark: 0px 10px 8px 2px rgba(131, 131, 131, 0.1);
@@ -101,6 +102,18 @@ a {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 35px;
+}
+
+button:disabled,
+button[disabled]{
+    background: var(--gray);
+    color: var(--text-light);
+}
+
+button:disabled:hover,
+button[disabled]:hover{
+    background: var(--gray);
+    color: var(--text-light);
 }
 
 /* =========================== Navigation =========================== */
@@ -377,8 +390,36 @@ a {
 
 
 /* -------------- Advertisement -------------- */
+.show-advertise{
+    display: block;
+}
+
+.hide-advertise{
+    display: none;
+}
+
 .advertisement-items {
     padding: 50px 0;
+}
+
+.advertisement-items .advertisement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.advertisement-items .advertisement .advertise-img{
+    width: 98%;
+    height: 300px;
+    object-fit: cover;
+    margin-left: 8px;
+}
+
+.slick-prev:before,
+.slick-next:before{
+    height: 45px;
+    width: 45px;
+    color: var(--primary);
 }
 
 /* -------------- Categories -------------- */
@@ -391,6 +432,7 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+
 }
 
 .single-category {
@@ -398,12 +440,15 @@ a {
     background: var(--background-200);
     padding: 15px;
     transition: .3s;
+    border: 2px solid var(--white);
 }
 
 .single-category img {
     width: 100%;
-    height: 400px;
+    height: 230px;
     object-fit: cover;
+    border-radius: 5px;
+
 }
 
 .single-category .category-name {
@@ -458,38 +503,38 @@ a {
     margin: 10px 0;
 }
 
-.products-container .single-product .data{
+.products-container .single-product .data {
     font-size: .9rem;
-    color:var(--primary);
+    color: var(--primary);
     margin-bottom: 3px;
 }
 
-.products-container .single-product .data span{
+.products-container .single-product .data span {
     color: var(--text-dark);
     font-size: 1rem;
     font-weight: 500;
     margin-left: 5px;
 }
 
-.products-container .single-product .price{
+.products-container .single-product .price {
     margin-bottom: 20px;
 }
 
-.products-container .single-product .actions{
+.products-container .single-product .actions {
     display: flex;
     width: 100%;
     align-items: center;
     gap: 10px;
 }
 
-.products-container .single-product .actions .add-to-basket{
+.products-container .single-product .actions .add-to-basket {
     width: 90%;
-    padding: 12px ;
+    padding: 12px;
     background: var(--gray-50);
     color: var(--);
     border: none;
     border-radius: 5px;
-    color:var(--text-dark-50);
+    color: var(--text-dark-50);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -498,16 +543,16 @@ a {
     transition: .4s;
 }
 
-.products-container .single-product .actions .add-to-basket:hover{
+.products-container .single-product .actions .add-to-basket:hover {
     background: var(--primary);
     color: var(--text-light);
 }
 
 
-.products-container .single-product .actions .add-to-wishlist{
+.products-container .single-product .actions .add-to-wishlist {
     width: 45px;
     height: 45px;
-    padding: 12px ;
+    padding: 12px;
     background: var(--gray-50);
     color: var(--);
     border: none;
@@ -519,23 +564,19 @@ a {
     transition: .4s;
 }
 
-.products-container .single-product .actions .add-to-wishlist:hover{
+.products-container .single-product .actions .add-to-wishlist:hover {
     background: var(--primary);
 }
 
-.products-container .single-product .actions .add-to-wishlist:hover .icon{
+.products-container .single-product .actions .add-to-wishlist:hover .icon {
     color: var(--text-light);
 }
 
 
-.products-container .single-product .actions .add-to-wishlist .icon{
+.products-container .single-product .actions .add-to-wishlist .icon {
     font-size: 1.1rem;
     color: var(--primary);
 }
-
-
-
-
 
 /* -------------- Modal -------------- */
 .main-modal {
@@ -604,6 +645,119 @@ a {
     margin-top: 10px;
 }
 
+
+/* -------------- My Product -------------- */
+.order-body .delete{
+    width: 20%;
+    text-align: end;
+    color: var(--primary);
+    position: relative;
+    right: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* -------------- Add Product -------------- */
+.add-product-form{
+    display: flex;
+    justify-content: center;
+}
+.add-product .heading {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.add-product form {
+    width: min(450px, 90%);
+
+}
+
+.add-product form .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-product form .inputs input,
+.add-product form .inputs textarea {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid var(--gray);
+    outline: none;
+}
+
+.add-product form .inputs input:focus,
+.add-product form .inputs textarea:focus {
+    border: 1px solid var(--primary);
+}
+
+.add-product form .conditions .condition-title,
+.add-product form .categories .category-title {
+    color: var(--primary);
+    font-size: .8rem;
+    margin-bottom: 3px;
+    margin-top: 5px;
+}
+
+.add-product form .condition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-product form .condition .good,
+.add-product form .condition .excellent,
+.add-product form .condition .fair {
+    width: 32%;
+}
+
+.add-product form .condition input {
+    display: none;
+    gap: 30px;
+}
+
+.add-product form .condition label {
+    width: 100%;
+    color: white;
+    padding: 10px;
+    display: block;
+    font-size: .9rem;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.add-product form .condition input:checked+label {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+.add-product form .categories {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.add-product form .categories .category{
+    padding: 10px;
+    background: transparent;
+    border-radius: 4px;
+    border: 1px solid var(--primary);
+    outline: none;
+}
+
+.add-product form .custom-button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+
 /* =========================== My Orders =========================== */
 .my-orders {
     min-height: calc(100vh - 155px);
@@ -632,50 +786,50 @@ a {
     align-items: center;
 }
 
-.my-orders .order-heading{
+.my-orders .order-heading {
     background: var(--primary-50);
     padding: 15px 10px;
     margin-bottom: 10px;
 }
 
-.my-orders .order-heading strong{
+.my-orders .order-heading strong {
     color: var(--primary);
     font-weight: 600;
 }
 
-.my-orders .order-body{
+.my-orders .order-body {
     border: 1px solid var(--primary-50);
     padding: 10px;
     margin-top: -1px;
 }
 
 .my-orders .order-heading .image,
-.my-orders .order-body .image{
+.my-orders .order-body .image {
     width: 100px;
 }
 
-.my-orders .order-body .image{
+.my-orders .order-body .image {
     height: 60px;
 }
 
-.my-orders .order-body .image-name .product-image{
+.my-orders .order-body .image-name .product-image {
     width: 60px;
     height: 60px;
     object-fit: cover;
     border-radius: 3px;
 }
 
-.my-orders .order-body .image-name .product-name{
+.my-orders .order-body .image-name .product-name {
     font-weight: 600;
     color: var(--text-dark);
 }
 
-.my-orders .order-body .price-pay .price{
+.my-orders .order-body .price-pay .price {
     color: var(--primary);
     font-weight: 500;
 }
 
-.my-orders .order-body .price-pay .pay{
+.my-orders .order-body .price-pay .pay {
     background: var(--primary);
     color: var(--text-light);
     padding: 5px 15px;
@@ -925,7 +1079,7 @@ a {
 
 
 /* Loader */
-.loader{
+.loader {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

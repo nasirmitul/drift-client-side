@@ -104,25 +104,28 @@ const AddProduct = () => {
                         <textarea name="description" id="description" placeholder='Description' required></textarea>
 
 
-                        <div className="condition">
-                            <p>Product Condition</p>
-                            <div className="excellent">
-                                <input type="radio" name="condition" value="excellent" id='excellent' required />
-                                <label htmlFor="excellent">Excellent</label>
+                        <div className="conditions">
+                            <p className='condition-title'>Product Condition</p>
+                            <div className="condition">
+                                <div className="excellent">
+                                    <input type="radio" name="condition" value="excellent" id='excellent' required />
+                                    <label htmlFor="excellent">Excellent</label>
+                                </div>
+                                <div className="good">
+                                    <input type="radio" name="condition" value="good" id='good' required />
+                                    <label htmlFor="good">Good</label>
+                                </div>
+                                <div className="fair">
+                                    <input type="radio" name="condition" value="fair" id='fair' required />
+                                    <label htmlFor="fair">Fair</label>
+                                </div>
                             </div>
-                            <div className="good">
-                                <input type="radio" name="condition" value="good" id='good' required />
-                                <label htmlFor="good">Good</label>
-                            </div>
-                            <div className="fair">
-                                <input type="radio" name="condition" value="fair" id='fair' required />
-                                <label htmlFor="fair">Fair</label>
-                            </div>
+
                         </div>
 
                         <div className="categories">
-                            <p>Product Category</p>
-                            <select onChange={handleChange} name="category" id="">
+                            <p className='category-title'>Product Category</p>
+                            <select className='category' onChange={handleChange} name="category" id="">
                                 {
                                     categories.map(category =>
                                         <option key={category._id} value={category._id} name="product_category" required>{category?.category_name}</option>
