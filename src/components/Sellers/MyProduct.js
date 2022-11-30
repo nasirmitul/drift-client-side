@@ -9,7 +9,7 @@ const MyProduct = () => {
     const [myProducts, setMyProducts] = useState([]);
     const [refetch, setRefetch] = useState(0)
     useEffect(() => {
-        fetch(`http://localhost:5000/myProduct/${user?.email}`)
+        fetch(`https://drift-server.vercel.app/myProduct/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyProducts(data))
     }, [refetch])
@@ -18,7 +18,7 @@ const MyProduct = () => {
     const handelProductDelete = (id) => {
         const proceed = window.confirm("Are you sure you want to this Product?")
         if (proceed) {
-            fetch(`http://localhost:5000/myProducts/${id}`, {
+            fetch(`https://drift-server.vercel.app/myProducts/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -34,7 +34,7 @@ const MyProduct = () => {
 
 
     const handleAdvertise = id => {
-        fetch(`http://localhost:5000/advertise/${id}`, {
+        fetch(`https://drift-server.vercel.app/advertise/${id}`, {
             method: 'PUT',
         })
             .then(res => res.json())

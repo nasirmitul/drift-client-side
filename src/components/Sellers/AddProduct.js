@@ -14,14 +14,14 @@ const AddProduct = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleCategory/${categoryId}`)
+        fetch(`https://drift-server.vercel.app/singleCategory/${categoryId}`)
             .then(res => res.json())
             .then(data => setCategoryData(data))
     }, [categoryId])
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/categories")
+        fetch("https://drift-server.vercel.app/categories")
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
@@ -69,7 +69,7 @@ const AddProduct = () => {
         console.log('myOrder', addProduct);
 
 
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://drift-server.vercel.app/addProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

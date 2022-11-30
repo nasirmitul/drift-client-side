@@ -29,7 +29,7 @@ const Modal = ({ product, closeModal }) => {
         }
 
 
-        fetch('http://localhost:5000/myOrders', {
+        fetch('https://drift-server.vercel.app/myOrders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
+import axios from 'axios'
 
 const Advertisement = () => {
 
     const [advertises, setAdvertises] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/advertise')
+        /* fetch('https://drift-server.vercel.app/advertise')
             .then(res => res.json())
-            .then(data => setAdvertises(data))
+            .then(data => setAdvertises(data)) */
+
+            axios.get('https://drift-server.vercel.app/advertise')
+            .then(data => {setAdvertises(data.data)})
     }, [])
 
     const settings = {
@@ -32,7 +36,7 @@ const Advertisement = () => {
                 <div>
                     <Slider {...settings}>
                         {
-                            advertises.map(item =>
+                            advertises.map(item => item.paid ||
                                 <div key={item._id}>
                                     <img className='advertise-img' src={item.product_image} alt="" />
                                 </div>

@@ -16,11 +16,11 @@ const CheckOut = ({ payment }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://drift-server.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                authorization: localStorage.getItem('secret-token')
+                // authorization: localStorage.getItem('secret-token')
             },
             body: JSON.stringify({ price: product_price })
         })
@@ -85,7 +85,7 @@ const CheckOut = ({ payment }) => {
                 product_id
             }
 
-            fetch('http://localhost:5000/payment', {
+            fetch('https://drift-server.vercel.app/payment', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -103,7 +103,7 @@ const CheckOut = ({ payment }) => {
 
 
 
-            fetch(`http://localhost:5000/products/${product_id}`, {
+            fetch(`https://drift-server.vercel.app/products/${product_id}`, {
                 method: 'PUT',
             })
                 .then(res => res.json())

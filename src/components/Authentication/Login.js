@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
-import useToken from '../../hooks/useToken';
 import Spinner from '../Spinner/Spinner';
 
 const Login = () => {
@@ -9,16 +8,16 @@ const Login = () => {
     const { loginUser, googleSign, loading } = useContext(AuthContext)
 
     const [loginUserEmail, setLoginUserEmail] = useState('');
-    const [token] = useToken(loginUserEmail);
+    // const [token] = useToken(loginUserEmail);
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
 
-    if(token){
+    /* if(token){
         navigate(from, { replace: true });
-    }
+    } */
 
     if (loading) {
         return <Spinner></Spinner>

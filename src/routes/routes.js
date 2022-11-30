@@ -50,7 +50,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://drift-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/blogs',
@@ -81,7 +81,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myOrders/payment/:id',
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>,
-                loader: ({params})  => fetch(`http://localhost:5000/myOrder/${params.id}`)
+                loader: ({params})  => fetch(`https://drift-server.vercel.app/myOrder/${params.id}`)
             },
             {
                 path: '/dashboard/addProduct',

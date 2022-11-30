@@ -17,7 +17,7 @@ const Products = () => {
     }
 
     const handleWishlist = (wishlist) => {
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://drift-server.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -37,7 +37,7 @@ const Products = () => {
         <div className='container' >
             <div className="products-container">
                 {
-                    products.map(product =>
+                    products.map(product => product.paid ||
                         <div className='single-product' key={product._id} >
                             <div className="picture">
                                 <img src={product.product_image} alt="" />

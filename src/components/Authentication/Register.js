@@ -15,16 +15,16 @@ const Register = () => {
 
     const [usersEmail, setUserEmail] = useState('');
     console.log("usersEmail", usersEmail);
-    const [token] = useToken(usersEmail);
+    // const [token] = useToken(usersEmail);
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
 
-    if (token) {
+    /* if (token) {
         navigate(from, { replace: true });
-    }
+    } */
 
     if (loading) {
         return <Spinner></Spinner>
@@ -73,23 +73,6 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
-                //get jwt token
-                const currentUser = {
-                    email: user?.email
-                }
-                fetch('https://croft-server.vercel.app/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        localStorage.setItem('secret-token', data.token)
-                        navigate(from, { replace: true });
-                    })
                 setUserEmail(user.email);
             }).catch((error) => {
                 console.log(error);
@@ -101,11 +84,11 @@ const Register = () => {
         const userData = {
             name,
             email,
-            user_role: role,
+            user_role: role, 
             f_user_id: uid
         }
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://drift-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

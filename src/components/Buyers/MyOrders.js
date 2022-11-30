@@ -9,10 +9,10 @@ const MyOrders = () => {
     const { data: myOrders = [] } = useQuery({
         queryKey: ['seller'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myOrders/${user.email}`, {
-                headers: {
-                    authorization: localStorage.getItem('secret-token')
-                }
+            const res = await fetch(`https://drift-server.vercel.app/myOrders/${user.email}`, {
+                // headers: {
+                //     authorization: localStorage.getItem('secret-token')
+                // }
             });
             const data = await res.json();
             return data;
@@ -20,7 +20,6 @@ const MyOrders = () => {
     })
 
     return (
-
         <div className='my-orders'>
             <div className="orders">
                 <div className="order-heading">
@@ -48,7 +47,10 @@ const MyOrders = () => {
                                 <div className="price-pay">
                                     <p className='price'>{order.product_price}</p>
 
-                                    <Link to={`/dashboard/myOrders/payment/${order._id}`}><p className='pay'>Pay</p></Link>
+                                    {
+                                        order.paid === true ? <p className='paid'>Paid</p> : <button disabled><Link to={`/dashboard/myOrders/payment/${order._id}`}><p className='pay'>Pay</p></Link></button>
+                                    }
+                                    {/* <Link to={`/dashboard/myOrders/payment/${order._id}`}><p className='pay'>Pay</p></Link> */}
                                 </div>
                             </div>
                         ).reverse()

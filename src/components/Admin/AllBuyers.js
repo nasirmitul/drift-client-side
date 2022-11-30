@@ -7,7 +7,7 @@ const AllBuyers = () => {
     const { data: allUser = [], refetch } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allUser/user');
+            const res = await fetch('https://drift-server.vercel.app/allUser/user');
             const data = await res.json();
             return data;
         }
@@ -17,7 +17,7 @@ const AllBuyers = () => {
     const handleUserDelete = (email) => {
         const proceed = window.confirm("Are you sure you want to this user?")
         if (proceed) {
-            fetch(`http://localhost:5000/users/${email}`, {
+            fetch(`https://drift-server.vercel.app/users/${email}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

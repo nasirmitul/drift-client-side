@@ -12,18 +12,18 @@ const AllSellers = () => {
     const { data: allSellers = [], refetch } = useQuery({
         queryKey: ['seller'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allUser/seller');
+            const res = await fetch('https://drift-server.vercel.app/allUser/seller');
             const data = await res.json();
             return data;
         }
     })
 
     const handleVerify = (email, name) => {
-        fetch(`http://localhost:5000/allUser/seller/${email}`, {
+        fetch(`https://drift-server.vercel.app/allUser/seller/${email}`, {
             method: 'PATCH',
-            headers: {
-                authorization: localStorage.getItem('secret-token')
-            }
+            // headers: {
+            //     authorization: localStorage.getItem('secret-token')
+            // }
         })
             .then(res => res.json())
             .then(data => {
@@ -38,7 +38,7 @@ const AllSellers = () => {
     const handelSellerDelete = (email) => {
         const proceed = window.confirm("Are you sure you want to this seller?")
         if (proceed) {
-            fetch(`http://localhost:5000/users/${email}`, {
+            fetch(`https://drift-server.vercel.app/users/${email}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
