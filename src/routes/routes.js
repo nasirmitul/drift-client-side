@@ -18,6 +18,7 @@ import Admin from "../layouts/Admin";
 import Main from "../layouts/Main";
 import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
+import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 
 
@@ -48,7 +49,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <Products></Products>,
+                element: <PrivateRoute><Products></Products></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {

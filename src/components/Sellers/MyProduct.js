@@ -44,6 +44,7 @@ const MyProduct = () => {
                     toast.success("Product Advertised");
                     setRefetch(refetch + 1)
                 }
+                toast.info("Product Already Advertised");
             })
     }
 
@@ -75,13 +76,15 @@ const MyProduct = () => {
                                     <p className='product-name'>{product.product_name}</p>
                                 </div>
                                 <div className="price-pay">
-                                    <p className='price'>{product.resale_price}</p>
-                                    <p className='price'>{product.status ? product.status : "unsold"}</p>
-                                    <p className='pay' onClick={() => handleAdvertise(product._id)}>Advertise</p>
+                                    <p className='price'>{product.resale_price}৳</p>
+                                    <p className='price'>{product.paid === true ? <p className='sold-green'>sold</p> : "available"}</p>
+                                    {
+                                        !product.paid ? <button className='pay' onClick={() => handleAdvertise(product._id)}>Advertise</button> : <button className='pay sold'>sold</button>
+                                    }
                                     <p className='delete' onClick={() => handelProductDelete(product._id)}><MdDelete className='icon'></MdDelete></p>
                                 </div>
                             </div>
-                        )
+                        ).reverse()
                 }
             </div>
         </div>

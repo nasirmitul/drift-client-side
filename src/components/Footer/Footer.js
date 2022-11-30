@@ -1,32 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaFacebookF } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
 import { AiOutlineTwitter } from 'react-icons/ai';
 import { ImLinkedin2 } from 'react-icons/im';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/categories")
+            .then(res => res.json())
+            .then(data => setCategories(data))
+    }, [])
+
     return (
         <div className="footer">
             <div className="container">
                 <div className="row">
                     <div className="single_footer">
-                        <h4>Services</h4>
+                        <h4>Categories</h4>
                         <ul>
-                            <li><a href="#">Lorem Ipsum</a></li>
-                            <li><a href="#">Simply dummy text</a></li>
-                            <li><a href="#">The printing and typesetting </a></li>
-                            <li><a href="#">Standard dummy text</a></li>
-                            <li><a href="#">Type specimen book</a></li>
+                            {
+                                categories.map(category =>
+                                    <li key={category._id}><Link to={`category/${category._id}`}>
+                                        {category.category_name}
+                                    </Link></li>
+                                )
+                            }
                         </ul>
                     </div>
                     <div className="single_footer single_footer_address">
                         <h4>Important Links</h4>
                         <ul>
-                            <li><a href="#">Lorem Ipsum</a></li>
-                            <li><a href="#">Simply dummy text</a></li>
-                            <li><a href="#">The printing and typesetting </a></li>
-                            <li><a href="#">Standard dummy text</a></li>
-                            <li><a href="#">Type specimen book</a></li>
+                            <li><Link>Blogs</Link></li>
+                            <li><Link>Dashboard</Link></li>
                         </ul>
                     </div>
                     <div className="sub-social">

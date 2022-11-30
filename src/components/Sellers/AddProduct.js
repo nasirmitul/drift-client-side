@@ -62,7 +62,8 @@ const AddProduct = () => {
             condition,
             product_category: categoryData[0].category_name,
             category_id: categoryId,
-            time: new Date()
+            time: new Date(), 
+            f_user_id: user?.uid
         }
 
         console.log('myOrder', addProduct);

@@ -51,7 +51,7 @@ const MyOrders = () => {
                                     <Link to={`/dashboard/myOrders/payment/${order._id}`}><p className='pay'>Pay</p></Link>
                                 </div>
                             </div>
-                        )
+                        ).reverse()
                 }
             </div>
         </div>

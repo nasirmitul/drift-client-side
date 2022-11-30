@@ -23,7 +23,7 @@ const Advertisement = () => {
 
 
     return (
-        <div className={`advertisement-items ${advertises.length > 0 ? 'show-advertise' : 'hide-advertise'}` }>
+        <div className={`advertisement-items container ${advertises.length > 0 ? 'show-advertise' : 'hide-advertise'}` }>
             <div className="section-title">
                 <p>Advertisement</p>
             </div>
@@ -36,7 +36,7 @@ const Advertisement = () => {
                                 <div key={item._id}>
                                     <img className='advertise-img' src={item.product_image} alt="" />
                                 </div>
-                            )
+                            ).reverse()
                         }
                     </Slider>
                 </div>

@@ -9,7 +9,7 @@ const Categories = () => {
     }, [])
     console.log(categories);
     return (
-        <div className='all-categories'>
+        <div className='all-categories container'>
             <div className="section-title">
                 <p>Product Categories</p>
             </div>

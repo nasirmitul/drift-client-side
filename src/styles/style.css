@@ -101,17 +101,18 @@ a {
     color: var(--primary);
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 35px;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 button:disabled,
-button[disabled]{
+button[disabled] {
     background: var(--gray);
     color: var(--text-light);
 }
 
 button:disabled:hover,
-button[disabled]:hover{
+button[disabled]:hover {
     background: var(--gray);
     color: var(--text-light);
 }
@@ -136,13 +137,7 @@ button[disabled]:hover{
 }
 
 .nav .logo a img {
-    width: 30px;
-}
-
-.nav .logo a p {
-    font-size: 2rem;
-    color: var(--primary);
-    font-weight: 600;
+    width: 100px;
 }
 
 .nav .nav-links {
@@ -363,11 +358,11 @@ button[disabled]:hover{
 }
 
 .banner .banner-left {
-    width: 40%;
+    width: 45%;
 }
 
 .banner .banner-right {
-    width: 60%;
+    width: 55%;
 }
 
 .banner .banner-right img {
@@ -375,8 +370,8 @@ button[disabled]:hover{
 }
 
 .banner .banner-left .title {
-    font-size: 4rem;
-    line-height: 70px;
+    font-size: 3.8rem;
+    line-height: 60px;
     font-weight: 600;
     color: var(--primary);
     margin-bottom: 30px;
@@ -390,25 +385,21 @@ button[disabled]:hover{
 
 
 /* -------------- Advertisement -------------- */
-.show-advertise{
+.show-advertise {
     display: block;
 }
 
-.hide-advertise{
+.hide-advertise {
     display: none;
 }
 
-.advertisement-items {
-    padding: 50px 0;
-}
-
-.advertisement-items .advertisement{
+.advertisement-items .advertisement {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.advertisement-items .advertisement .advertise-img{
+.advertisement-items .advertisement .advertise-img {
     width: 98%;
     height: 300px;
     object-fit: cover;
@@ -416,10 +407,10 @@ button[disabled]:hover{
 }
 
 .slick-prev:before,
-.slick-next:before{
+.slick-next:before {
     height: 45px;
     width: 45px;
-    color: var(--primary);
+    color: var(--gray);
 }
 
 /* -------------- Categories -------------- */
@@ -432,7 +423,6 @@ button[disabled]:hover{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
-
 }
 
 .single-category {
@@ -448,7 +438,6 @@ button[disabled]:hover{
     height: 230px;
     object-fit: cover;
     border-radius: 5px;
-
 }
 
 .single-category .category-name {
@@ -467,6 +456,120 @@ button[disabled]:hover{
 .single-category:hover .category-name {
     color: var(--text-dark);
 }
+
+
+/* -------------- Process -------------- */
+.our-process {
+    background: var(--primary);
+    padding: 80px 50px;
+    border-radius: 5px;
+}
+
+.our-process .section-title p {
+    color: var(--text-light);
+    margin-top: -15px;
+}
+
+.our-process .processes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.our-process .processes .process {
+    width: calc((100% / 3) - 30px);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px 50px;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.our-process .processes .process .icon {
+    font-size: 5rem;
+    color: var(--third);
+}
+
+.our-process .processes .process p {
+    text-align: center;
+    color: var(--text-light);
+}
+
+
+/* -------------- Delivery -------------- */
+
+.delivery {
+    width: min(1200px, 95%);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.total-delivery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.total-delivery .number {
+    text-align: center;
+}
+
+.total-delivery .number h1 {
+    font-size: 8rem;
+    font-weight: 900;
+    background-repeat: no-repeat;
+    background-size: 500px;
+    text-transform: uppercase;
+    color: var(--primary-50);
+}
+
+.total-delivery .number p {
+    margin-top: -20px;
+    margin-bottom: 60px;
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.total-delivery .brands {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.total-delivery .brands .img {
+    width: 200px;
+    height: 90px;
+    background: var(--background-500);
+    box-shadow: var(--shadow-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.brands .img img {
+    width: 100px;
+}
+
+#map {
+    position: absolute;
+    opacity: .2;
+    z-index: -1;
+    object-fit: cover;
+}
+
+
+
 
 /* =========================== Products =========================== */
 
@@ -501,6 +604,17 @@ button[disabled]:hover{
     font-size: 1.1rem;
     font-weight: 600;
     margin: 10px 0;
+}
+
+.products-container .single-product .seller-name-verify {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.products-container .single-product .seller-name-verify .verify {
+    font-size: .9rem;
+    color: var(--primary);
 }
 
 .products-container .single-product .data {
@@ -647,7 +761,7 @@ button[disabled]:hover{
 
 
 /* -------------- My Product -------------- */
-.order-body .delete{
+.order-body .delete {
     width: 20%;
     text-align: end;
     color: var(--primary);
@@ -658,10 +772,11 @@ button[disabled]:hover{
 }
 
 /* -------------- Add Product -------------- */
-.add-product-form{
+.add-product-form {
     display: flex;
     justify-content: center;
 }
+
 .add-product .heading {
     color: var(--primary);
     font-size: 2rem;
@@ -744,7 +859,7 @@ button[disabled]:hover{
     gap: 3px;
 }
 
-.add-product form .categories .category{
+.add-product form .categories .category {
     padding: 10px;
     background: transparent;
     border-radius: 4px;
@@ -835,6 +950,16 @@ button[disabled]:hover{
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.my-orders .order-body .price-pay .sold {
+    background: rgb(201, 201, 201);
+}
+
+.my-orders .order-body .price-pay .sold-green {
+    color: rgb(17, 214, 99);
 }
 
 /* =========================== Dashboard =========================== */
@@ -905,6 +1030,7 @@ button[disabled]:hover{
     position: relative;
     right: 10px;
     font-size: 1.4rem;
+    cursor: pointer;
 }
 
 .table-heading .delete .icon {
@@ -930,6 +1056,89 @@ button[disabled]:hover{
 
 .table-data p {
     padding: 15px;
+}
+
+/* =========================== Blog =========================== */
+
+.post-link {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.post-wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 4px 0px 8px 2px rgba(66, 166, 253, 0.09);
+    transition: all .25s;
+    top: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.post-wrap:hover {
+    top: 2px;
+    box-shadow: 4px 0px 8px 2px rgba(66, 166, 253, 0.2);
+}
+
+.post-image {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.post-body {
+    padding: 15px 30px;
+    margin: 0 auto;
+}
+
+.post-body-primary {
+    margin: 10px 0 10px 0;
+}
+
+.post-meta {
+    color:var(--text-dark-50);
+}
+
+.post-meta p {
+    font-size: .9rem;
+}
+
+.post-meta b {
+    font-weight: 500;
+}
+
+.post-title {
+    color: var(--primary);
+    padding: 5px 0 10px 0;
+}
+
+.post-title h2 {
+    font-size: 1.2rem;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+.post-text p {
+    color:var(--text-dark-50);
+    line-height: 20px;
+    font-size: .9rem;
+}
+
+.post-body-secondary {
+    border-top: 1px solid var(--gray-50);
+}
+
+.post-category {
+    color:var(--text-dark-50);
+    padding: 15px 0 10px 0;
+}
+
+.post-category p {
+    font-size: .9rem;
 }
 
 /* =========================== Footer =========================== */
@@ -1084,4 +1293,47 @@ button[disabled]:hover{
     left: 50%;
     transform: translateX(-50%);
     margin: 100px;
+}
+
+
+/* Error */
+.error-page {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.error .texts h1 {
+    color: var(--primary);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error .texts p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error .image {
+    width: 100%;
+    margin: auto;
+}
+
+.error .image img {
+    width: min(600px, 90%);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 50px;
 }

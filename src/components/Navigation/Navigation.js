@@ -15,7 +15,7 @@ const Navigation = () => {
         <div className='navbar'>
             <div className="nav container">
                 <div className="logo">
-                    <Link to='/'><img src={logo} alt="logo" /><p>Drift</p></Link>
+                    <Link to='/'><img src={logo} alt="logo" /></Link>
                 </div>
                 <div className="nav-links">
                     <NavLink to='/'>Home</NavLink>

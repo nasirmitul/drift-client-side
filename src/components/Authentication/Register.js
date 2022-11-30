@@ -48,7 +48,8 @@ const Register = () => {
                     displayName: name, photoURL: "https://i.ibb.co/P1ZYLSv/male-avatar.png"
                 }).then(() => {
                     console.log('profile updated');
-                    saveUser(name, email, user_type);
+                    const uid = result.user.uid
+                    saveUser(name, email, user_type, uid);
                     form.reset();
                 }).catch((error) => {
                     console.log(error);
@@ -72,6 +73,23 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                //get jwt token
+                const currentUser = {
+                    email: user?.email
+                }
+                fetch('https://croft-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('secret-token', data.token)
+                        navigate(from, { replace: true });
+                    })
                 setUserEmail(user.email);
             }).catch((error) => {
                 console.log(error);
@@ -79,11 +97,12 @@ const Register = () => {
     }
 
 
-    const saveUser = (name, email, role) => {
+    const saveUser = (name, email, role, uid) => {
         const userData = {
             name,
             email,
-            user_role: role
+            user_role: role,
+            f_user_id: uid
         }
 
         fetch('http://localhost:5000/users', {

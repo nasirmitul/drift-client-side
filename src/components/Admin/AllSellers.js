@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query'
 import { MdDelete } from 'react-icons/md';
 import { MdVerified } from 'react-icons/md';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../../contexts/UserContext';
 
 const AllSellers = () => {
+
+    const {user} = useContext(AuthContext);
     
     const { data: allSellers = [], refetch } = useQuery({
         queryKey: ['seller'],
@@ -15,9 +18,9 @@ const AllSellers = () => {
         }
     })
 
-    const handleVerify = (id, name) => {
-        fetch(`http://localhost:5000/allUser/seller/${id}`, {
-            method: 'PUT',
+    const handleVerify = (email, name) => {
+        fetch(`http://localhost:5000/allUser/seller/${email}`, {
+            method: 'PATCH',
             headers: {
                 authorization: localStorage.getItem('secret-token')
             }
@@ -67,7 +70,7 @@ const AllSellers = () => {
                                 <p >{seller.name}</p>{seller?.verify ? <MdVerified className='verified'></MdVerified> : ''}
                             </div>
                             <p className='email'>{seller.email}</p>
-                            <p className='delete' onClick={() => handleVerify(seller._id, seller.name)}><MdVerified className='icon'></MdVerified></p>
+                            <p className='delete' onClick={() => handleVerify(seller.email, seller.name)}><MdVerified className='icon'></MdVerified></p>
                             <p className='delete' onClick={() => handelSellerDelete(seller.email)}><MdDelete className='icon'></MdDelete></p>
                         </div>
                     )
