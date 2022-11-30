@@ -14,15 +14,15 @@ const Process = () => {
                 <div className="processes">
                     <div className="process-one process">
                         <AiOutlineFileSearch className='icon'></AiOutlineFileSearch>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, necessitatibus!</p>
+                        <p>Search the cars from your preferred categories</p>
                     </div>
                     <div className="process-two process">
                         <BiSelectMultiple className='icon'></BiSelectMultiple>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, necessitatibus!</p>
+                        <p>Select the car that fits to you</p>
                     </div>
                     <div className="process-three process">
                         <AiOutlineFileDone className='icon'></AiOutlineFileDone>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, necessitatibus!</p>
+                        <p>Purchase the car you have liked</p>
                     </div>
                 </div>
 
