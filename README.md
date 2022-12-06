@@ -1,10 +1,7 @@
-#### Project Idea 
-`smart home products`
-
 # Project Name: Drift
 
 ## Live Website Link
-[Live Website](link)
+[Live Website](https://drift0.web.app/)
 
 ### Project Description
 * This is an smart home product resale website

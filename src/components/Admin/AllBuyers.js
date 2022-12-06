@@ -4,6 +4,7 @@ import { MdDelete } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 const AllBuyers = () => {
+    
     const { data: allUser = [], refetch } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
